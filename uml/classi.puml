@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package it.unipg.modello {
+    
+    class Libro {
+        - isbn : String
+        - titolo : String
+        - autore : String
+        - disponibile : boolean
+        + Libro(isbn, titolo, autore)
+        + isDisponibile() : boolean
+        + setDisponibile(disponibile : boolean)
+    }
+
+    class Utente {
+        - idUtente : String
+        - nome : String
+        + Utente(idUtente, nome)
+        + getIdUtente() : String
+    }
+
+    class Catalogo {
+        - libri : List<Libro>
+        + aggiungiLibro(libro : Libro)
+        + cercaPerTitolo(titolo : String) : Optional<Libro>
+    }
+
+    class GestorePrestiti {
+        + registraPrestito(utente : Utente, libro : Libro) : boolean
+        + restituisciLibro(libro : Libro)
+    }
+
+}
+
+' Relazioni tra le classi
+Catalogo "1" o-- "*" Libro : contiene
+GestorePrestiti ..> Libro : usa/modifica
+GestorePrestiti ..> Utente : associa
+@enduml

@@ -1,0 +1,90 @@
+
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% Configurazione per il codice Java
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=Java
+}
+
+\title{Relazione Progetto: Sistema Gestione Biblioteca}
+\author{Studente: Marco}
+\date{Maggio 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introduzione}
+Il presente progetto riguarda la realizzazione di un sistema per la gestione dei prestiti e della ricerca di libri in una biblioteca universitaria. Lo sviluppo segue i principi dell'Ingegneria del Software, focalizzandosi sulla tracciabilità dei requisiti, la modularità del codice e la verifica tramite test automatici.
+
+\section{Analisi dei Requisiti}
+\subsection{Casi d'Uso Principali}
+Il sistema implementa due funzionalità core, fondamentali per il flusso di lavoro della biblioteca:
+\begin{itemize}
+    \item \textbf{UC1: Ricerca Libro:} Permette all'utente di verificare la presenza di un titolo nel catalogo mediante una ricerca testuale.
+    \item \textbf{UC2: Gestione Prestito:} Gestisce la transazione di prestito verificando preventivamente la disponibilità del volume e aggiornandone lo stato.
+\end{itemize}
+
+\section{Architettura del Sistema}
+\subsection{Modellazione dei Dati}
+L'architettura segue il principio di Singola Responsabilità (SRP). I modelli (\texttt{Libro}, \texttt{Utente}) sono separati dalla logica di gestione (\texttt{Catalogo}, \texttt{GestorePrestiti}).
+
+\subsection{Configurazione Maven}
+Il progetto utilizza Maven come strumento di build e gestione delle dipendenze. Il file \texttt{pom.xml} è configurato per utilizzare \textbf{Java 21} e include le librerie \textbf{JUnit 5} per il testing.
+
+\section{Verifica e Test}
+\subsection{Test Unitari (JUnit)}
+Per garantire la robustezza del sistema, è stato implementato un test unitario automatizzato per il flusso di prestito. Il test verifica che il sistema neghi correttamente il prestito di un libro già impegnato.
+
+\begin{lstlisting}[caption={Esempio di Test Unitario per il Prestito}]
+@Test
+void testPrestitoLibroGiaOccupato() {
+    gestore.registraPrestito(utente1, libro);
+    boolean risultato = gestore.registraPrestito(utente2, libro);
+    assertFalse(risultato);
+}
+\end{lstlisting}
+
+\subsection{Risultati della Compilazione}
+L'esecuzione del comando \texttt{mvn test} ha prodotto i seguenti risultati, confermando la correttezza della logica implementata:
+\begin{itemize}
+    \item \textbf{Build Status:} SUCCESS
+    \item \textbf{Tests run:} 1
+    \item \textbf{Failures:} 0
+    \item \textbf{Errors:} 0
+\end{itemize}
+
+\section{Conclusioni}
+Il sistema soddisfa i requisiti minimi richiesti, dimostrando una corretta integrazione tra modellazione UML, implementazione Java 21 e verifica tramite pipeline di test.
+
+\end{document}

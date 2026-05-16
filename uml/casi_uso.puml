@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Utente Biblioteca" as User
+actor "Sistema Catalogo" as System <<External>>
+
+rectangle "Sistema Gestione Biblioteca" {
+  usecase "UC1: Ricerca Libro" as UC1
+  usecase "UC2: Richiesta Prestito" as UC2
+  usecase "Verifica Disponibilità" as UC3
+}
+
+User --> UC1
+User --> UC2
+UC2 ..> UC3 : <<include>>
+UC3 -- System
+@enduml
