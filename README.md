@@ -1,9 +1,9 @@
-# Biblioteca Smart - Sistema di Gestione Biblioteca
+# Biblioteca Smart (Smart-Smart)- Sistema di Gestione Biblioteca
 
 Progetto per l'esame di **Ingegneria del Software**.
 Il sistema informatizza i processi principali di una biblioteca universitaria, specificamente la consultazione del catalogo (UC1) e la gestione del prestito (UC2).
 
-## Funzionalità (Casi d'Uso)
+## Funzionalità (Casi d'Uso) (Casi d'udo)
 
 Il sistema implementa i seguenti casi d'uso principali:
 * **UC1 - Ricerca Libro**: Verifica della presenza di un titolo nel catalogo con supporto a ricerche parziali.
