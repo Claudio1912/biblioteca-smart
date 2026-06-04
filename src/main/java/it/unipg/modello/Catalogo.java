@@ -46,7 +46,7 @@ public class Catalogo {
             .filter(l -> l.getTitolo().toLowerCase().contains(titolo.toLowerCase()))
             .findFirst();
     }
-
+    // PROVA
     /**
      * Restituisce una copia dell'elenco completo di tutti i libri presenti nel catalogo.
      * * @return Una {@link List} contenente tutti i libri registrati.
