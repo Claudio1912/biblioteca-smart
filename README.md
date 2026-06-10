@@ -42,6 +42,7 @@ Garantisce la riproducibilità e l'esecuzione dell'ambiente di build:
 
 * **Java Development Kit (JDK):** Versione 21.
 * **Strumento di Build:** Apache Maven 3.x.
+* **SI TRATTA DI MODIFICA SUL README**: Bravo tu.
 
 ### Comando unico di compilazione e test
 
